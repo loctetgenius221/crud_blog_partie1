@@ -13,7 +13,7 @@
         <a href="/create" class="btn btn-primary">Ajouter un article</a>
         <hr>
         <br>
-        <div class="d-flex gap-3">
+        <div class="d-flex gap-4 justify-content-center">
             @foreach ($articles as $article)
             <div class="card" style="width: 18rem;">
                 <img src="{{ $article->image }}" class="card-img-top" alt="...">
@@ -21,6 +21,10 @@
                     <h5 class="card-title">{{ $article->nom }}</h5>
                     <p class="card-text">{{ $article->description }}</p>
                     <p class="card-text">{{ $article->date_de_creation }}</p>
+                    <div>
+                        <a href="/update/{{ $article->id }}" class="btn btn-info">Modifier</a>
+                        <a href="/delete/{{ $article->id }}" class="btn btn-danger">Supprimer</a>
+                    </div>
                 </div>
             </div>
             @endforeach
