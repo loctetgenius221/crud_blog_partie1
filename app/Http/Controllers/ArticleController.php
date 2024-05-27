@@ -17,7 +17,7 @@ class ArticleController extends Controller
         return view('articles.create');
     }
 
-    public function create_article_traitement(Request $request) {
+    public function createArticleTreatment(Request $request) {
 
         $request->validate([
             'nom' => 'required',
@@ -45,7 +45,7 @@ class ArticleController extends Controller
         return view('/articles.update', compact('articles'));
     }
 
-    public function update_article_traitement(Request $request) {
+    public function updateArticleTreatment(Request $request) {
 
         $request->validate([
             'nom' => 'required',
@@ -66,7 +66,7 @@ class ArticleController extends Controller
 
     }
 
-    public function delete_article($id) {
+    public function deleteArticle($id) {
         $article = Article::find($id);
         $article->delete();
 
