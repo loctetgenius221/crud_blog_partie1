@@ -12,12 +12,12 @@ Route::get('/article', [ArticleController::class, 'readArticle']);
 Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
 
 Route::get('/create', [ArticleController::class, 'createArticle']);
-Route::post('/create/traitement', [ArticleController::class, 'create_article_traitement']);
+Route::post('/create/traitement', [ArticleController::class, 'createArticleTreatment']);
 
 Route::get('/update/{id}', [ArticleController::class, 'updateArticle']);
-Route::post('/update/traitement', [ArticleController::class, 'update_article_traitement']);
+Route::post('/update/traitement', [ArticleController::class, 'updateArticleTreatment']);
 
-Route::get('/delete/{id}', [ArticleController::class, 'delete_article']);
+Route::get('/delete/{id}', [ArticleController::class, 'deleteArticle']);
 
 
 
