@@ -15,6 +15,8 @@ Route::post('/create/traitement', [ArticleController::class, 'create_article_tra
 Route::get('/update/{id}', [ArticleController::class, 'updateArticle']);
 Route::post('/update/traitement', [ArticleController::class, 'update_article_traitement']);
 
+Route::get('/delete/{id}', [ArticleController::class, 'delete_article']);
+
 
 
 
