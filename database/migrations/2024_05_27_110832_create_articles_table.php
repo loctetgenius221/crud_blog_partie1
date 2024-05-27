@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->text('description');
+            $table->date('date_de_creation');
+            $table->boolean('a_la_une')->default(false);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
