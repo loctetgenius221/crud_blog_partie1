@@ -9,17 +9,22 @@
   <body>
 
     <div class="container">
-        <h1 class="title">Voici la liste des articles</h1><hr><br>
-        @foreach ($articles as $article)
-        <div class="card" style="width: 18rem;">
-            <img src="{{ $article->image }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ $article->nom }}</h5>
-                <p class="card-text">{{ $article->description }}</p>
-                <p class="card-text">{{ $article->date_de_creation }}</p>
+        <h1 class="title text-center">Voici la liste des articles</h1><hr>
+        <a href="/create" class="btn btn-primary">Ajouter un article</a>
+        <hr>
+        <br>
+        <div class="d-flex gap-3">
+            @foreach ($articles as $article)
+            <div class="card" style="width: 18rem;">
+                <img src="{{ $article->image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $article->nom }}</h5>
+                    <p class="card-text">{{ $article->description }}</p>
+                    <p class="card-text">{{ $article->date_de_creation }}</p>
+                </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

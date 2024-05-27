@@ -8,3 +8,9 @@ Route::get('/', function () {
 });
 
 Route::get('/article', [ArticleController::class, 'readArticle']);
+
+Route::get('/create', [ArticleController::class, 'createArticle']);
+Route::post('/create/traitement', [ArticleController::class, 'create_article_traitement']);
+
+
+

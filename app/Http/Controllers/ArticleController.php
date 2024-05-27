@@ -12,4 +12,31 @@ class ArticleController extends Controller
         $articles = Article::all();
         return view('articles.index', compact('articles'));
     }
+
+    public function createArticle() {
+        return view('articles.create');
+    }
+
+    public function create_article_traitement(Request $request) {
+
+        $request->validate([
+            'nom' => 'required',
+            'description' => 'required',
+            'date_de_creation' => 'required|date',
+            'a_la_une' => 'required|boolean',
+            'image' => 'required|url',
+        ]);
+        $article = new Article();
+        $article->nom = $request->nom;
+        $article->description = $request->description;
+        $article->date_de_creation = $request->date_de_creation;
+        $article->a_la_une = $request->a_la_une;
+        $article->image = $request->image;
+
+
+        $article->save();
+
+        return redirect('/create')->with('status', 'L\'article a été ajouter avec succès.');
+
+    }
 }
