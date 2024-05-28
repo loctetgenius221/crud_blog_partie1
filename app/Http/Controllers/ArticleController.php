@@ -9,8 +9,14 @@ class ArticleController extends Controller
 {
     public function readArticle() {
 
-        $articles = Article::all();
-        return view('articles.index', compact('articles'));
+        $articles = Article::where('a_la_une', '0')->get();
+        $featuredArticles = Article::where('a_la_une', '1')->get();
+
+        return view('articles.index', [
+            'articles' => $articles,
+            'featuredArticles' => $featuredArticles
+        ]);
+
     }
 
     public function createArticle() {

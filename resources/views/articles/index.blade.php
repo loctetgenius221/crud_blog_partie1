@@ -11,7 +11,31 @@
         <h1 class="title text-center">Voici la liste des articles</h1><hr>
         <a href="/create" class="btn btn-primary">Ajouter un article</a>
         <hr>
-        <br>
+
+        <div class="featured-articles">
+            <h2 class="text-center">Articles à la une</h2><hr>
+            <div class="row">
+                @foreach ($featuredArticles as $article)
+                <div class="col-md-3 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ $article->image }}" class="card-img-top" alt="{{ $article->nom }}" width="100" height="200px">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $article->nom }}</h5>
+                            <p class="card-text">{{ $article->description }}</p>
+                            <p class="card-text">{{ $article->date_de_creation }}</p>
+                            <div>
+                                <a href="/update/{{ $article->id }}" class="btn btn-info">Modifier</a>
+                                <a href="/delete/{{ $article->id }}" class="btn btn-danger">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <hr>
+
+        <h2 class="text-center">Articles</h2><hr>
         <div class="row">
             @foreach ($articles as $article)
             <div class="col-md-3 mb-4">
